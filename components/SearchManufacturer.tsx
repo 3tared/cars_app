@@ -52,43 +52,36 @@ function SearchManufacturer({
             afterLeave={() => setQuery('')}
           >
             <Options>
-              {filterdManufacturer.length === 0 && query !== '' ? (
+              {filterdManufacturer.map((item) => (
                 <Option
-                  value={query}
-                  className={'search-manufacturer__option'}
-                ></Option>
-              ) : (
-                filterdManufacturer.map((item) => (
-                  <Option
-                    key={item}
-                    className={({ active }) =>
-                      `relative search-manufacturer__option ${
-                        active ? 'bg-primary-blue text-white' : 'text-gray-900'
-                      }`
-                    }
-                    value={item}
-                  >
-                    {({ selected, active }) => (
-                      <>
+                  key={item}
+                  className={({ active }) =>
+                    `relative search-manufacturer__option ${
+                      active ? 'bg-primary-blue text-white' : 'text-gray-900'
+                    }`
+                  }
+                  value={item}
+                >
+                  {({ selected, active }) => (
+                    <>
+                      <span
+                        className={`block truncate ${
+                          selected ? 'font-medium' : 'font-normal'
+                        }`}
+                      >
+                        {item}
+                      </span>
+                      {selected ? (
                         <span
-                          className={`block truncate ${
-                            selected ? 'font-medium' : 'font-normal'
+                          className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                            active ? 'text-white' : 'text-teal-600'
                           }`}
-                        >
-                          {item}
-                        </span>
-                        {selected ? (
-                          <span
-                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                              active ? 'text-white' : 'text-teal-600'
-                            }`}
-                          ></span>
-                        ) : null}
-                      </>
-                    )}
-                  </Option>
-                ))
-              )}
+                        ></span>
+                      ) : null}
+                    </>
+                  )}
+                </Option>
+              ))}
             </Options>
           </Transition>
         </div>
