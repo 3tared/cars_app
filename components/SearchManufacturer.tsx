@@ -53,9 +53,10 @@ function SearchManufacturer({
           >
             <Options>
               {filterdManufacturer.length === 0 && query !== '' ? (
-                <Option value={query} className={'search-manufacturer__option'}>
-                  "{query}" Does Not Exist
-                </Option>
+                <Option
+                  value={query}
+                  className={'search-manufacturer__option'}
+                ></Option>
               ) : (
                 filterdManufacturer.map((item) => (
                   <Option
