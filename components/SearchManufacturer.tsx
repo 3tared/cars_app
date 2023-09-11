@@ -6,6 +6,7 @@ import { SearchManuFacturerProps } from '@/types';
 import { Combobox, Transition } from '@headlessui/react';
 import Image from 'next/image';
 import { useState, Fragment } from 'react';
+import { CustomButton } from '.';
 
 const { Button, Input, Options, Option } = Combobox;
 
@@ -44,6 +45,7 @@ function SearchManufacturer({
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}
           />
+          {''}
           <Transition
             as={Fragment}
             leave="transition ease-in duration-100"

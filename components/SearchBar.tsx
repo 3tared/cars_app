@@ -88,6 +88,12 @@ function SearchBar() {
         <SearchButton otherClasses="sm:hidden" />
       </div>
       <SearchButton otherClasses="max-sm:hidden" />
+      <button
+        className="bg-primary-blue rounded-full text-white p-2"
+        onClick={() => setManufacturer('')}
+      >
+        Clear selection
+      </button>
     </form>
   );
 }
